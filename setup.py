@@ -18,7 +18,8 @@ setup(
     name='coop-cms',
     version = VERSION,
     description='Companion app for django-coop, a fork of swingtime package',
-    packages=[  'coop_agenda.conf',
+    packages=[  'coop_agenda',
+                'coop_agenda.conf',
                 'coop_agenda.migrations'
                 ],
     include_package_data=True,
