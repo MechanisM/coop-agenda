@@ -1,0 +1,3 @@
+recursive-include coop_agenda/templates *.html
+recursive-include coop_agenda/static *.js *.css *.png *.jpg *.gif
+recursive-include coop_agenda/locale *.mo *.po
