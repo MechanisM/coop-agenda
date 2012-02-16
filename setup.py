@@ -15,7 +15,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='coop-cms',
+    name='coop-agenda',
     version = VERSION,
     description='Companion app for django-coop, a fork of swingtime package',
     packages=[  'coop_agenda',
