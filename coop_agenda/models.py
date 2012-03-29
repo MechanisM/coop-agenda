@@ -9,16 +9,19 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib.auth.models import User
 
+
 class Calendar(models.Model):
-    title = models.CharField(_('title'),blank=True,max_length=250)
-    description = models.TextField(_(u'description'),blank=True)
+    title = models.CharField(_('title'), blank=True, max_length=250)
+    description = models.TextField(_(u'description'), blank=True)
     slug = exfields.AutoSlugField(populate_from='title')
-    created = exfields.CreationDateTimeField(_(u'created'),null=True)
-    modified = exfields.ModificationDateTimeField(_(u'modified'),null=True)
+    created = exfields.CreationDateTimeField(_(u'created'), null=True)
+    modified = exfields.ModificationDateTimeField(_(u'modified'), null=True)
+
     class Meta:
         verbose_name = _('calendar')
         verbose_name_plural = _('calendars')
     #     abstract = True
+
     def __unicode__(self):
         return self.title
         
@@ -45,24 +48,18 @@ class Event(models.Model):
     """
     Container model for general metadata and associated ``Occurrence`` entries.
     """
-    title       = models.CharField(_('title'), max_length=32)
-    description = models.TextField(_(u'description'),blank=True)
-    slug        = exfields.AutoSlugField(populate_from='title')
-    created     = exfields.CreationDateTimeField(_(u'created'),null=True)
-    modified    = exfields.ModificationDateTimeField(_(u'modified'),null=True)
-    
-    event_type  = models.ForeignKey(EventType, verbose_name=_('event type'))
-    calendar    = models.ForeignKey(Calendar,verbose_name=_('calendar'))
-    
-    user        = models.ForeignKey(User,blank=True,null=True,verbose_name=_('django user'),editable=False)
- 
-    content_type    = models.ForeignKey(ContentType,blank=True,null=True)
-    object_id       = models.PositiveIntegerField()
-    content_object  = generic.GenericForeignKey('content_type', 'object_id')    
- 
- 
-    # org         = models.ForeignKey('coop_local.Initiative',blank=True,null=True,verbose_name=_('organization'))
-    # location    = models.ForeignKey(Location,blank=True,null=True,verbose_name=_('location'))
+    title = models.CharField(_('title'), max_length=32)
+    description = models.TextField(_(u'description'), blank=True)
+    slug = exfields.AutoSlugField(populate_from='title')
+    created = exfields.CreationDateTimeField(_(u'created'), null=True)
+    modified = exfields.ModificationDateTimeField(_(u'modified'), null=True)
+    event_type = models.ForeignKey(EventType, verbose_name=_('event type'))
+    calendar = models.ForeignKey(Calendar, verbose_name=_('calendar'))
+    user = models.ForeignKey(User, blank=True, null=True, verbose_name=_('django user'), editable=False)
+
+    content_type = models.ForeignKey(ContentType, blank=True, null=True)
+    object_id = models.PositiveIntegerField()
+    content_object = generic.GenericForeignKey('content_type', 'object_id')    
 
     uuid = exfields.UUIDField()
     
@@ -73,6 +70,7 @@ class Event(models.Model):
         verbose_name_plural = _('events')
         ordering = ('title', )
         # abstract = True
+
     def __unicode__(self):
         return self.title
 
@@ -171,8 +169,8 @@ class Occurrence(models.Model):
     start_time = models.DateTimeField(_('start time'))
     end_time = models.DateTimeField(_('end time'))
     event = models.ForeignKey(Event, verbose_name=_('event'), editable=False)
-    created = exfields.CreationDateTimeField(_(u'created'),null=True)
-    modified = exfields.ModificationDateTimeField(_(u'modified'),null=True)
+    created = exfields.CreationDateTimeField(_(u'created'), null=True)
+    modified = exfields.ModificationDateTimeField(_(u'modified'), null=True)
 
     objects = OccurrenceManager()
 
@@ -199,7 +197,6 @@ class Occurrence(models.Model):
     @property
     def event_type(self):
         return self.event.event_type
-
 
 
 def create_event(title, event_type, description='', start_time=None,
@@ -234,7 +231,7 @@ def create_event(title, event_type, description='', start_time=None,
             abbr=event_type[0],
         )
         if created:
-            event_type.label=event_type[1]
+            event_type.label = event_type[1]
             event_type.save()
 
     event = Event.objects.create(
@@ -242,7 +239,6 @@ def create_event(title, event_type, description='', start_time=None,
         description=description,
         event_type=event_type
     )
-
 
     start_time = start_time or datetime.now().replace(
         minute=0,
