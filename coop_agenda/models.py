@@ -3,12 +3,11 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django_extensions.db import fields as exfields
-#from coop_geo.models import Location
 from dateutil import rrule
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib.auth.models import User
-
+from django.conf import settings
 
 class Calendar(models.Model):
     title = models.CharField(_('title'), blank=True, max_length=250)
@@ -55,15 +54,14 @@ class Event(models.Model):
     modified = exfields.ModificationDateTimeField(_(u'modified'), null=True)
     event_type = models.ForeignKey(EventType, verbose_name=_('event type'))
     calendar = models.ForeignKey(Calendar, verbose_name=_('calendar'))
-    user = models.ForeignKey(User, blank=True, null=True, verbose_name=_('django user'), editable=False)
-
-    content_type = models.ForeignKey(ContentType, blank=True, null=True)
-    object_id = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type', 'object_id')    
-
+    # Linking to local objects
+    organization = models.ForeignKey('coop_local.Organization', null=True, blank=True)
+    person = models.ForeignKey('coop_local.Person', null=True, blank=True)
+    # Linking to local or remote objects
+    publisher_uri = models.CharField(_('organization URI'), max_length=255)
+    author_uri = models.CharField(_('author URI'), max_length=255)
+    # Needed ?
     uuid = exfields.UUIDField()
-    
-    #tags
 
     class Meta:
         verbose_name = _('event')
@@ -224,7 +222,7 @@ def create_event(title, event_type, description='', start_time=None,
     ``freq``, ``count``, ``rrule_params``
         follow the ``dateutils`` API (see http://labix.org/python-dateutil)
     """
-    from agenda.conf import settings as agenda_settings
+    from coop_agenda.conf import settings as agenda_settings
 
     if isinstance(event_type, tuple):
         event_type, created = EventType.objects.get_or_create(
