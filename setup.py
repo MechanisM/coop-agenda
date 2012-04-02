@@ -17,7 +17,7 @@ def read(fname):
 setup(
     name='coop-agenda',
     version = VERSION,
-    description='Companion app for django-coop, a fork of swingtime package',
+    description='Companion app for django-coop, a fork of swingtime',
     packages=[  'coop_agenda',
                 'coop_agenda.conf',
                 'coop_agenda.migrations'
