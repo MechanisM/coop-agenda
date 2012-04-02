@@ -54,14 +54,15 @@ class Event(models.Model):
     modified = exfields.ModificationDateTimeField(_(u'modified'), null=True)
     event_type = models.ForeignKey(EventType, verbose_name=_('event type'))
     calendar = models.ForeignKey(Calendar, verbose_name=_('calendar'))
+    
     # Linking to local objects
     organization = models.ForeignKey('coop_local.Organization', null=True, blank=True)
     person = models.ForeignKey('coop_local.Person', null=True, blank=True)
     # Linking to local or remote objects
     publisher_uri = models.CharField(_('organization URI'), max_length=255)
     author_uri = models.CharField(_('author URI'), max_length=255)
-    # Needed ?
-    uuid = exfields.UUIDField()
+    
+    uuid = exfields.UUIDField()  # Needed ?
 
     class Meta:
         verbose_name = _('event')

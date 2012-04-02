@@ -19,8 +19,7 @@ setup(
     version = VERSION,
     description='Companion app for django-coop, a fork of swingtime',
     packages=[  'coop_agenda',
-                'coop_agenda.conf',
-                'coop_agenda.migrations'
+                'coop_agenda.conf'
                 ],
     include_package_data=True,
     author='Dominique Guardiola',
