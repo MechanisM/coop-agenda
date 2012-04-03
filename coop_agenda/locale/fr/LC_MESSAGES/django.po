@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: coop_agenda\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-24 14:56+0000\n"
+"POT-Creation-Date: 2012-04-03 12:08+0200\n"
 "PO-Revision-Date: 2011-12-24 15:57+0100\n"
 "Last-Translator: Dominique Guardiola <dguardiola@quinode.fr>\n"
 "Language-Team: Quinode <contact@quinode.fr>\n"
@@ -91,8 +91,7 @@ msgstr "Mars"
 msgid "April"
 msgstr "Avril"
 
-#: forms.py:40
-#: forms.py:55
+#: forms.py:40 forms.py:55
 msgid "May"
 msgstr "Mai"
 
@@ -188,23 +187,19 @@ msgstr "quatrième"
 msgid "last"
 msgstr "dernier"
 
-#: forms.py:75
-#: templates/recurring_form_part.html:30
+#: forms.py:75 templates/recurring_form_part.html:30
 msgid "Day(s)"
 msgstr "Jour(s)"
 
-#: forms.py:76
-#: templates/recurring_form_part.html:35
+#: forms.py:76 templates/recurring_form_part.html:35
 msgid "Week(s)"
 msgstr "Semaine(s)"
 
-#: forms.py:77
-#: templates/recurring_form_part.html:44
+#: forms.py:77 templates/recurring_form_part.html:44
 msgid "Month(s)"
 msgstr "Mois"
 
-#: forms.py:78
-#: templates/recurring_form_part.html:72
+#: forms.py:78 templates/recurring_form_part.html:72
 msgid "Year(s)"
 msgstr "Année(s)"
 
@@ -228,8 +223,7 @@ msgstr "Heure de début"
 msgid "End time"
 msgstr "Heure de fin"
 
-#: forms.py:213
-#: templates/event_detail.html:35
+#: forms.py:213 templates/event_detail.html:35
 msgid "Occurrences"
 msgstr "Occurrences"
 
@@ -245,8 +239,7 @@ msgstr "Fréquence"
 msgid "Weekly options"
 msgstr "Options hebdomadaires"
 
-#: forms.py:253
-#: templates/recurring_form_part.html:51
+#: forms.py:253 templates/recurring_form_part.html:51
 #: templates/recurring_form_part.html:81
 msgid "On the"
 msgstr "Le "
@@ -268,85 +261,87 @@ msgstr "Options annuelles"
 msgid "Unknown interval rule %s"
 msgstr "Régle d'intervalle inconnue %s"
 
-#: models.py:13
-#: models.py:48
+#: models.py:13 models.py:50
 msgid "title"
 msgstr "titre"
 
-#: models.py:14
-#: models.py:49
+#: models.py:14 models.py:51
 msgid "description"
 msgstr "description"
 
-#: models.py:16
-#: models.py:51
-#: models.py:174
+#: models.py:16 models.py:53 models.py:171
 msgid "created"
 msgstr "créé le"
 
-#: models.py:17
-#: models.py:52
-#: models.py:175
+#: models.py:17 models.py:54 models.py:172
 msgid "modified"
 msgstr "modifié le"
 
-#: models.py:19
-#: models.py:55
+#: models.py:20 models.py:56
 msgid "calendar"
 msgstr "calendrier"
 
-#: models.py:20
+#: models.py:21
 msgid "calendars"
 msgstr "calendriers"
 
-#: models.py:30
+#: models.py:32
 msgid "abbreviation"
 msgstr "abbréviation"
 
-#: models.py:31
+#: models.py:33
 msgid "label"
 msgstr "libellé"
 
-#: models.py:37
-#: models.py:54
+#: models.py:39 models.py:55
 msgid "event type"
 msgstr "catégorie d'événément"
 
-#: models.py:38
+#: models.py:40
 msgid "event types"
 msgstr "catégories d'événements"
 
-#: models.py:57
-msgid "django user"
-msgstr "utilisateur django"
+#: models.py:59
+msgid "organization"
+msgstr "organisation"
 
-#: models.py:72
-#: models.py:173
+#: models.py:60
+msgid "author"
+msgstr "auteur"
+
+#: models.py:62
+msgid "organization URI"
+msgstr "URI organisation"
+
+#: models.py:63
+msgid "author URI"
+msgstr "URI auteur"
+
+#: models.py:68 models.py:170
 msgid "event"
 msgstr "événement"
 
-#: models.py:73
+#: models.py:69
 msgid "events"
 msgstr "événements"
 
-#: models.py:171
+#: models.py:168
 msgid "start time"
 msgstr "heure de début"
 
-#: models.py:172
+#: models.py:169
 msgid "end time"
 msgstr "heure de fin"
 
-#: models.py:180
+#: models.py:177
 msgid "occurrence"
 msgstr "occurrence"
 
-#: models.py:181
+#: models.py:178
 msgid "occurrences"
 msgstr "occurrences"
 
-#: templates/add_event.html:2
-#: templates/add_event.html.py:4
+#: templates/add_event.html:2 templates/add_event.html.py:4
 msgid "Add Event"
 msgstr "Ajouter un événement"
 
@@ -358,8 +353,7 @@ msgstr "Merci de corriger les erreurs."
 msgid "Submit"
 msgstr "Valider"
 
-#: templates/daily_view.html:2
-#: templates/daily_view.html.py:4
+#: templates/daily_view.html:2 templates/daily_view.html.py:4
 msgid "Daily View"
 msgstr "Vue journalière"
 
@@ -396,8 +390,7 @@ msgstr "Événement"
 msgid "Event Details"
 msgstr "Détail de l'événement"
 
-#: templates/event_detail.html:11
-#: templates/occurrence_detail.html:39
+#: templates/event_detail.html:11 templates/occurrence_detail.html:39
 msgid "Update"
 msgstr "Mise à jour"
 
@@ -417,18 +410,15 @@ msgstr "Ajouter des occurences"
 msgid "Add"
 msgstr "Ajouter"
 
-#: templates/event_list.html:2
-#: templates/event_list.html.py:4
+#: templates/event_list.html:2 templates/event_list.html.py:4
 msgid "All Events"
 msgstr "Tous les événements"
 
-#: templates/monthly_view.html:2
-#: templates/monthly_view.html.py:4
+#: templates/monthly_view.html:2 templates/monthly_view.html.py:4
 msgid "Monthly View"
 msgstr "Vue mensuelle"
 
-#: templates/monthly_view.html:7
-#: templates/yearly_view.html:6
+#: templates/monthly_view.html:7 templates/yearly_view.html:6
 msgid "Last Month"
 msgstr "Dernier mois"
 
@@ -437,13 +427,11 @@ msgstr "Dernier mois"
 msgid "View %(year)s"
 msgstr "Afficher %(year)%"
 
-#: templates/monthly_view.html:12
-#: templates/yearly_view.html:9
+#: templates/monthly_view.html:12 templates/yearly_view.html:9
 msgid "Next Month"
 msgstr "Mois prochain"
 
-#: templates/occurrence_detail.html:2
-#: templates/occurrence_detail.html.py:4
+#: templates/occurrence_detail.html:2 templates/occurrence_detail.html.py:4
 msgid "Event Occurrence"
 msgstr "Occurence de l'événement"
 
@@ -481,8 +469,7 @@ msgstr "Chaque %(interval)s "
 msgid "Each"
 msgstr "Chaque"
 
-#: templates/yearly_view.html:2
-#: templates/yearly_view.html.py:7
+#: templates/yearly_view.html:2 templates/yearly_view.html.py:7
 #, python-format
 msgid "Yearly View %(year)s"
 msgstr "Vue annuelle %(year)s"
@@ -512,17 +499,8 @@ msgstr "Fin"
 msgid "<p>No events occurring in %(year)s</p>"
 msgstr "<p>Aucun événement en %(year)s</p>"
 
-#~ msgid "organization URI"
-#~ msgstr "URI organisation"
-
-#~ msgid "author URI"
-#~ msgstr "URI auteur"
-
-#~ msgid "organization"
-#~ msgstr "organisation"
-
-#~ msgid "author"
-#~ msgstr "auteur"
+#~ msgid "django user"
+#~ msgstr "utilisateur django"
 
 #~ msgid "location"
 #~ msgstr "localisation"

@@ -56,11 +56,11 @@ class Event(models.Model):
     calendar = models.ForeignKey(Calendar, verbose_name=_('calendar'))
     
     # Linking to local objects
-    organization = models.ForeignKey('coop_local.Organization', null=True, blank=True)
-    person = models.ForeignKey('coop_local.Person', null=True, blank=True)
+    organization = models.ForeignKey('coop_local.Organization', null=True, blank=True, verbose_name=_('organization'))
+    person = models.ForeignKey('coop_local.Person', null=True, blank=True, verbose_name=_('author'))
     # Linking to local or remote objects
-    publisher_uri = models.CharField(_('organization URI'), max_length=255)
-    author_uri = models.CharField(_('author URI'), max_length=255)
+    publisher_uri = models.CharField(_('organization URI'), blank=True, max_length=255, editable=False)
+    author_uri = models.CharField(_('author URI'), blank=True, max_length=255, editable=False)
     
     uuid = exfields.UUIDField()  # Needed ?
 
